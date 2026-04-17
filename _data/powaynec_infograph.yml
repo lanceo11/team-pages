@@ -1,0 +1,36 @@
+# Poway NEC Capstone Infographic
+Title: "Binary Beasts: Poway NEC"
+Description: "Binary Beasts capstone track for powaynec.com, focused on turning a static preparedness site into a more useful neighborhood preparedness platform."
+
+Topics:
+  - title: "Poway Neighborhood Emergency Corps"
+    image: "capstone/powaynec-logo-white.png"
+    link: "https://powaynec.com/"
+    project_link: "https://pnec.opencodingsociety.com"
+    alt: "Poway NEC website preview"
+    keyPoints:
+      - title: "ML Wildfire Risk Predictor."
+        image: "PNECML.png"
+        location: "status"
+        link: "https://pnec.opencodingsociety.com"
+      - title: "AI Preparedness Chatbot."
+        image: "PNECChatbot.png"
+        location: "status"
+        link: "https://pnec.opencodingsociety.com"
+      - title: "Admin & Volunteer Login System."
+        link: "https://pnec.opencodingsociety.com/pages/login.html"
+      - title: "Emergency Preparedness Mini Game."
+        link: "https://pnec.opencodingsociety.com"
+        images:
+          - "PNECGame.png"
+          - "PNECLogin.png"
+    impact:
+      - title: "Residents can see the risk of fire in their area"
+      - title: "Questions can be answered quickly"
+      - title: "Better organization and coordination"
+      - title: "Fun ways to learn for kids"
+    status: "In Development"
+    team:
+      - "Aneesh Deevi"
+      - "Ethan Patel"
+      - "Samarth Vaka"

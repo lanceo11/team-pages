@@ -1,0 +1,104 @@
+# RCR Poway-Midland Railroad Capstone Infographic
+Title: "RCR: Poway-Midland Railroad Digital Experience"
+Description: "A Design-Based Research capstone by RCR team transforming the Poway-Midland Railroad website from static history into a dynamic digital destination — using real-time data, interactive tools, and visitor-centered design."
+
+Features:
+  - title: "RCR Interactive Train Schedule System"
+    image: "images/capstone/RCR-inforgraph.png"
+    link: "https://rcr.opencodingsociety.com/schedule"
+    alt: "RCR Interactive Train Schedule - Real-time departure board showing train times and availability"
+    keyPoints:
+      - "Real-time departure status (Running, Delayed, Full)"
+      - "Online ticket reservations with email confirmations"
+      - "Peak time prediction to reduce wait times"
+      - "Mobile-responsive interface for on-site visitors"
+    subtitle: "Live ride info + digital reservations"
+    current: "Static PDF timetable causes visitor confusion and missed rides."
+    purpose: "Replace with live, accurate train status 24/7. Reduce station congestion, capture ridership data, and make reservations seamless — so volunteers spend less time answering 'when is the next train?' and more time operating."
+    tech:
+      - "HTML/CSS/JavaScript"
+      - "YAML Data Storage"
+      - "Jekyll Liquid Templates"
+      - "Local Storage API"
+    impact:
+      - "Cuts visitor confusion about operating hours"
+      - "Enables data-driven schedule adjustments"
+      - "Improves mobile access at the park"
+    status: "Phase 1 - In Development"
+    team:
+      - Rebecca, Cyrus, Rishabh
+
+  - title: "RCR Virtual Railroad Tour"
+    image: "images/capstone/360.png"
+    link: "https://rcr.opencodingsociety.com/camera"
+    alt: "RCR Virtual Railroad Tour - 360° interactive views of trains and Old Poway Park"
+    keyPoints:
+      - "360° panoramic views of locomotives and tracks"
+      - "Clickable hotspots with train history facts"
+      - "Historical photo timeline + audio narration"
+      - "Interactive map of the full train route"
+    subtitle: "Explore Old Poway Park from anywhere"
+    current: "No online way to experience the railroad before visiting."
+    purpose: "Attract new visitors and preserve history digitally. Create a virtual preview that turns online viewers into on-site riders — plus a lasting educational resource for schools, families with mobility limits, and history enthusiasts who cannot visit in person."
+    tech:
+      - "360° Image Processing"
+      - "JavaScript Panorama Viewer"
+      - "Responsive Touch Controls"
+      - "Multimedia Integration"
+    impact:
+      - "Drives park visitation from virtual previews"
+      - "Provides accessible experience for mobility-limited guests"
+      - "Preserves railroad stories digitally"
+    status: "Phase 2 - In Development"
+    team:
+      - Rebecca, Cyrus, Rishabh
+
+  - title: "RCR Live Train Tracker"
+    image: "images/capstone/tracking.png"
+    link: "https://rcr.opencodingsociety.com/schedule"
+    alt: "RCR Live Train Tracker - Real-time GPS map showing train position on tracks"
+    keyPoints:
+      - "Live train position on interactive park map"
+      - "Estimated arrival times at station"
+      - "Push notifications for departures"
+      - "Visitor-facing display screen mode"
+    subtitle: "GPS-based real-time train positioning"
+    current: "Visitors wait blindly at the station with no ETA."
+    purpose: "Show exactly where the train is and when it returns. Reduce idle wait times, improve visitor satisfaction, and give volunteers operational data to optimize departure spacing — while demonstrating IoT technology as a park attraction itself."
+    tech:
+      - "GPS Integration"
+      - "Real-time Data Processing"
+      - "Interactive Mapping"
+      - "Push Notification System"
+    impact:
+      - "Eliminates guessing at the station"
+      - "Provides hard data for schedule tuning"
+      - "Creates a tech demo that draws crowds"
+    status: "Phase 3 - In Development"
+    team:
+      - Rebecca, Cyrus, Rishabh
+
+  - title: "RCR Volunteer Management Portal"
+    image: "images/capstone/Management Portal.png"
+    link: "https://rcr.opencodingsociety.com/volunteer-schedule"
+    alt: "RCR Volunteer Portal - Digital scheduling and hours tracking interface"
+    keyPoints:
+      - "Online shift sign-up with automated reminders"
+      - "Hours tracking + annual summary for recognition"
+      - "Skill tracking and role matching"
+      - "Central communication hub"
+    subtitle: "Digital tools for volunteer coordination"
+    current: "Manual scheduling and paper timesheets burden coordinators."
+    purpose: "Automate shift fills and hour tracking. Keep 50+ active volunteers engaged without burning out coordinators — ensure better shift coverage on busy days, track hours accurately for grants, and give volunteers an easy way to commit, swap, or communicate."
+    tech:
+      - "Database Design"
+      - "Authentication System"
+      - "Automated Notification Service"
+      - "Calendar Integration"
+    impact:
+      - "Saves 10+ coordinator hours per week"
+      - "Increases volunteer retention through ease of use"
+      - "Provides auditable hours for grant reporting"
+    status: "Phase 2 - In Development"
+    team:
+      - Rebecca, Cyrus, Rishabh
