@@ -12,7 +12,7 @@ class GameLevelOverworld {
     const path = gameEnv.path;
 
     // Background image info
-    const image_src_main = `${path}/images/projects/gamify/maine_RPG.png`;
+    const image_src_main = `${path}/images/gamify/maine_RPG.png`;
     const image_data_main = {
       name: 'main',
       greeting: "Welcome to the main hub of Overworld.",
@@ -21,7 +21,7 @@ class GameLevelOverworld {
     };
 
     // Player sprite info and configuration
-    const sprite_src_player = `${path}/images/projects/gamify/steve.png`;
+    const sprite_src_player = `${path}/images/gamify/steve.png`;
     const PLAYER_SCALE_FACTOR = 5;
     const sprite_data_player = {
       id: 'Player',
@@ -59,7 +59,7 @@ class GameLevelOverworld {
     };
 
     // Creeper sprite info with movement and animation logic
-    const sprite_src_creeper = `${path}/images/projects/gamify/creepa.png`;
+    const sprite_src_creeper = `${path}/images/gamify/creepa.png`;
     const sprite_greet_creeper = "KABOOM!!";
     const sprite_data_creeper = {
       id: 'Creeper',
@@ -309,16 +309,16 @@ class GameLevelOverworld {
 
         // Load background image
         this.backgroundImage = new Image();
-        this.backgroundImage.src = `${gameEnv.path}/images/projects/gamify/mcbg.jpg`; 
+        this.backgroundImage.src = `${gameEnv.path}/images/gamify/mcbg.jpg`; 
 
         
         // Load collectible item image
         this.collectibleImage = new Image();
-        this.collectibleImage.src = `${gameEnv.path}/images/projects/gamify/sword.png`; 
+        this.collectibleImage.src = `${gameEnv.path}/images/gamify/sword.png`; 
 
         // Load player image
         this.playerImage = new Image();
-        this.playerImage.src = `${gameEnv.path}/images/projects/gamify/stevelol.png`; 
+        this.playerImage.src = `${gameEnv.path}/images/gamify/stevelol.png`; 
 
         // Player properties
         this.playerX = 50; 
@@ -336,7 +336,7 @@ class GameLevelOverworld {
         this.playerDirection = 1;
 
         this.enemyImage = new Image();
-        this.enemyImage.src = `${gameEnv.path}/images/projects/gamify/mzombie.png`;
+        this.enemyImage.src = `${gameEnv.path}/images/gamify/mzombie.png`;
 
         const platformStartX = this.canvas.width / 2 + 50;
         const platformEndX = this.canvas.width / 2 + 410;
@@ -349,7 +349,7 @@ class GameLevelOverworld {
         this.enemyDirection = -1;
 
         this.npcImage = new Image();
-        this.npcImage.src = `${gameEnv.path}/images/projects/gamify/mchicken.png`;
+        this.npcImage.src = `${gameEnv.path}/images/gamify/mchicken.png`;
         this.npcWidth = 50;
         this.npcHeight = 50;
         this.npcX = this.canvas.width - 150;
@@ -403,9 +403,9 @@ class GameLevelOverworld {
           new Image(),
           new Image()
         ];
-        this.platformImages[0].src = `${path}/images/projects/gamify/grassblock.jpg`;
-        this.platformImages[1].src = `${path}/images/projects/gamify/grassblock.jpg`;
-        this.platformImages[2].src = `${path}/images/projects/gamify/grassblock.jpg`;
+        this.platformImages[0].src = `${path}/images/gamify/grassblock.jpg`;
+        this.platformImages[1].src = `${path}/images/gamify/grassblock.jpg`;
+        this.platformImages[2].src = `${path}/images/gamify/grassblock.jpg`;
 
         // Load all images with error handling
         this.loadImages();
@@ -1189,7 +1189,7 @@ class GameLevelOverworld {
     }, 5000);
 
     // Villager NPC sprite and interaction
-    const sprite_src_villager = `${path}/images/projects/gamify/villager.png`;
+    const sprite_src_villager = `${path}/images/gamify/villager.png`;
     const sprite_greet_villager = "Aur aur aur";
     const sprite_data_villager = {
       id: 'Villager',

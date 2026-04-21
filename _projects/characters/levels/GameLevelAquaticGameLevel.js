@@ -10,11 +10,11 @@
 // 3) Ensure images exist and paths resolve via 'path' provided by the engine.
 // 4) You can add more objects to this.classes inside the constructor.
 
-import GameEnvBackground from '/assets/js/GameEnginev1/essentials/GameEnvBackground.js';
-import Player from '/assets/js/GameEnginev1/essentials/Player.js';
-import Npc from '/assets/js/GameEnginev1/essentials/Npc.js';
-import Barrier from '/assets/js/GameEnginev1/essentials/Barrier.js';
-import Collectible from '/assets/js/GameEnginev1/essentials/Collectible.js';
+import GameEnvBackground from '/assets/js/GameEnginev1.1/essentials/GameEnvBackground.js';
+import Player from '/assets/js/GameEnginev1.1/essentials/Player.js';
+import Npc from '/assets/js/GameEnginev1.1/essentials/Npc.js';
+import Barrier from '/assets/js/GameEnginev1.1/essentials/Barrier.js';
+import Collectible from '/assets/js/GameEnginev1.1/essentials/Collectible.js';
 import AiNpc from '/assets/js/GameEnginev1.1/essentials/AiNpc.js';
 
 class GameLevelAquaticGameLevel {
@@ -27,13 +27,13 @@ class GameLevelAquaticGameLevel {
 
         const bgData = {
             name: "custom_bg",
-            src: path + "/images/gamebuilder/bg/Aquatic.png",
+            src: path + "/images/projects/characters/Aquatic.png",
             pixels: { height: 1960, width: 2940 }
         };
 
         const playerData = {
             id: 'playerData',
-            src: path + "/images/gamebuilder/sprites/scubadiver.png",
+            src: path + "/images/projects/characters/scubadiver.png",
             SCALE_FACTOR: 5,
             STEP_FACTOR: 1000,
             ANIMATION_RATE: 50,
@@ -56,7 +56,7 @@ class GameLevelAquaticGameLevel {
         const slimeNpc = {
             id: 'Random Slime',
             greeting: "I've been living under the sea for thousands of years, do you wonder why?",
-            src: path + "/images/gamebuilder/sprites/slime.png",
+            src: path + "/images/projects/characters/slime.png",
             SCALE_FACTOR: 8,
             ANIMATION_RATE: 50,
             INIT_POSITION: { x: 800, y: 128 },
@@ -228,7 +228,7 @@ class GameLevelAquaticGameLevel {
         const kirbyNpc = {
             id: 'Kirby',
             greeting: 'Poyo! Ask me anything about ocean cleanup and sea life.',
-            src: path + '/images/gamebuilder/sprites/kirby.png',
+            src: path + '/images/projects/characters/kirby.png',
             SCALE_FACTOR: 10,
             ANIMATION_RATE: 6,
             INIT_POSITION: { x: 180, y: 140 },
@@ -1233,7 +1233,7 @@ class GameLevelAquaticGameLevel {
 
             const overlay = transitionOverlay('Swimming to the surface...');
             await animatePlayerSwim(14);
-            setBackground(path + '/images/gamebuilder/bg/Above the water.png');
+            setBackground(path + '/images/projects/characters/Above the water.png');
             setWorldNpcVisibility(false);
 
             const player = getPlayer();
@@ -1262,7 +1262,7 @@ class GameLevelAquaticGameLevel {
             const overlay = transitionOverlay('Diving back underwater...');
             await animatePlayerSwim(12);
 
-            setBackground(path + '/images/gamebuilder/bg/Aquatic.png');
+            setBackground(path + '/images/projects/characters/Aquatic.png');
             setWorldNpcVisibility(true);
             clearSurfaceTrash();
 
@@ -1649,7 +1649,7 @@ class GameLevelAquaticGameLevel {
             id: 'Mermaid',
             greeting: "I've lost all my starfishes. Will you collect them? Be careful, a shark is patrolling these waters!",
             // Mermaid spritesheet
-            src: path + "/images/gamebuilder/sprites/Mermaid Spritesheet.png",
+            src: path + "/images/projects/characters/Mermaid Spritesheet.png",
             SCALE_FACTOR: 6,
             ANIMATION_RATE: 50,
             INIT_POSITION: { x: 520, y: 320 },
@@ -1750,7 +1750,7 @@ class GameLevelAquaticGameLevel {
         const sharkNpc = {
             id: 'Shark',
             greeting: false,
-            src: path + "/images/gamebuilder/sprites/Shark.png",
+            src: path + "/images/projects/characters/Shark.png",
             SCALE_FACTOR: 5,
             STEP_FACTOR: 200,
             ANIMATION_RATE: 8,

@@ -40,14 +40,14 @@ class GameLevelBasketball {
     this.lebronStunUntil = 0;
     this.lebronStunDurationMs = 3000;
 
-    const image_src_court = path + '/images/gamebuilder/bg/BaskCourt.png';
+    const image_src_court = path + '/images/projects/characters/BaskCourt.png';
     const image_data_court = {
       id: 'BasketballCourt',
       src: image_src_court,
       pixels: { height: 720, width: 1478 }
     };
 
-    const sprite_src_player = path + '/images/gamebuilder/sprites/astro.png';
+    const sprite_src_player = path + '/images/projects/characters/astro.png';
     const sprite_data_player = {
       id: 'BasketballPlayer',
       greeting: 'Ball handler ready.',
@@ -70,7 +70,7 @@ class GameLevelBasketball {
       keypress: { up: 87, left: 65, down: 83, right: 68 }
     };
 
-    const sprite_src_chaser = path + '/images/gamebuilder/sprites/kirby.png';
+    const sprite_src_chaser = path + '/images/projects/characters/kirby.png';
     const sprite_data_chaser = {
       id: 'LeBron',
       greeting: 'You reached LeBron.',

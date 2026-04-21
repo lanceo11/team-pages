@@ -11,7 +11,7 @@ class GameLevelStarWars {
     let path = gameEnv.path;
 
     // Background data
-    const image_src_atat = path + "/images/projects/gamify/atat_background.png"; // be sure to include the path
+    const image_src_atat = path + "/images/gamify/atat_background.png"; // be sure to include the path
     const image__data_atat = {
         id: 'AT-AT-Background',
         src: image_src_atat,
@@ -19,7 +19,7 @@ class GameLevelStarWars {
     };
 
     // Player data for snowspeeder
-    const sprite_src_snowspeeder = path + "/images/projects/gamify/snowspeeder_sprite2.png"; // be sure to include the path
+    const sprite_src_snowspeeder = path + "/images/gamify/snowspeeder_sprite2.png"; // be sure to include the path
     const SNOWSPEEDER_SCALE_FACTOR = 6;
     const sprite_data_snowspeeder = {
         id: 'Snowspeeder',
@@ -47,7 +47,7 @@ class GameLevelStarWars {
     };
 
     // NPC Data for Turret Anti-Air
-    const sprite_src_turret = path + "/images/projects/gamify/aa_spritesheet1.png"; // be sure to include the path
+    const sprite_src_turret = path + "/images/gamify/aa_spritesheet1.png"; // be sure to include the path
     const TURRET_SCALE_FACTOR = 3;
     const sprite_data_turret = {
       id: 'Turret-Anti-Air',
@@ -63,7 +63,7 @@ class GameLevelStarWars {
     };
 
     // Laser data, temporary sprite for testing
-    const sprite_src_laser = path + "/images/projects/gamify/laser_bolt.png"; // be sure to include the path
+    const sprite_src_laser = path + "/images/gamify/laser_bolt.png"; // be sure to include the path
     const sprite_data_laser1 = {
         id: 'AT-AT-Laser-1',
         greeting: "Simulate explosive action!",

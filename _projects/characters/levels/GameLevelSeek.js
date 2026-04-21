@@ -26,13 +26,13 @@ class GameLevelSeek {
 
         const bgData = {
             name: "custom_bg",
-            src: path + "/images/gamebuilder/bg/tagplayground.png",
+            src: path + "/images/projects/characters/tagplayground.png",
             pixels: { height: 400, width: 560 }
         };
 
         const playerData = {
             id: 'playerData',
-            src: path + "/images/gamebuilder/sprites/boysprite.png",
+            src: path + "/images/projects/characters/boysprite.png",
             SCALE_FACTOR: 5,
             STEP_FACTOR: 1000,
             ANIMATION_RATE: 50,
@@ -192,7 +192,7 @@ class GameLevelSeek {
             const kirbyData = {
                 id: 'KirbyReward',
                 greeting: '🎉 Congratulations! You found all the coins!',
-                src: path + "/images/gamebuilder/sprites/kirby.png",
+                src: path + "/images/projects/characters/kirby.png",
                 SCALE_FACTOR: 6,
                 ANIMATION_RATE: 50,
                 INIT_POSITION: { x: kirbyX, y: kirbyY },
