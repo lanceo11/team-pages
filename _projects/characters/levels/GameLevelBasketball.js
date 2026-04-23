@@ -1,10 +1,10 @@
-import GameEnvBackground from '../../GameEnginev1.1/essentials/GameEnvBackground.js';
-import Player from '../../GameEnginev1.1/essentials/Player.js';
-import Npc from '../../GameEnginev1.1/essentials/Npc.js';
-import Coin from '../../GameEnginev1.1/Coin.js';
-import Barrier from '../../GameEnginev1.1/essentials/Barrier.js';
-import Leaderboard from '../../GameEnginev1.1/essentials/Leaderboard.js';
-import DialogueSystem from '../../GameEnginev1.1/essentials/DialogueSystem.js';
+import GameEnvBackground from '../../../GameEnginev1.1/essentials/GameEnvBackground.js';
+import Player from '../../../GameEnginev1.1/essentials/Player.js';
+import Npc from '../../../GameEnginev1.1/essentials/Npc.js';
+import Coin from '../../../GameEnginev1.1/Coin.js';
+import Barrier from '../../../GameEnginev1.1/essentials/Barrier.js';
+import Leaderboard from '../../../GameEnginev1.1/essentials/Leaderboard.js';
+import DialogueSystem from '../../../GameEnginev1.1/essentials/DialogueSystem.js';
 
 class GameLevelBasketball {
   constructor(gameEnv) {
