@@ -175,7 +175,7 @@ permalink: /
     <div class="title-wrap">
       <h1>Team Aquatic-Pages</h1>
       <p>Drift into ocean adventures built by Team Aquatic.</p>
-      <a href="{{ site.baseurl }}/characters-lesson/">Enter the Aquatic World</a>
+      <a href="characters-lesson/">Enter the Aquatic World</a>
     </div>
   </div>
 
