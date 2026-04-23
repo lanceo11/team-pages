@@ -1,5 +1,3 @@
-// Adventure Game Custom Level
-
 import GameEnvBackground from '/assets/js/GameEnginev1.1/essentials/GameEnvBackground.js';
 import Player from '/assets/js/GameEnginev1.1/essentials/Player.js';
 import Npc from '/assets/js/GameEnginev1.1/essentials/Npc.js';
@@ -52,7 +50,7 @@ class GameLevelSeek {
         };
 
         // =====================================================
-        // 🎮 SPRITE SWAP SYSTEM (PRESS E)
+        // SPRITE SWAP SYSTEM (PRESS Q)
         // =====================================================
         const spriteOptions = [
             path + "/images/projects/characters/boysprite.png",
@@ -85,7 +83,7 @@ class GameLevelSeek {
         };
 
         document.addEventListener("keydown", (e) => {
-            if (e.key === "e" || e.key === "E") {
+            if (e.key.toLowerCase() === "q") {
                 toggleSprite();
             }
         });
@@ -156,6 +154,7 @@ class GameLevelSeek {
 
                         if (coinState.collected >= coinState.total) {
                             coinState.kirbySpawned = true;
+                            console.log("All coins collected!");
                         }
                     }
                 }, gameEnv);
