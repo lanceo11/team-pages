@@ -6,160 +6,242 @@ permalink: /
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Team Aquatic</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Aquatic-Pages</title>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --deep-1: #020912;
+      --deep-2: #05335b;
+      --deep-3: #0a6ca1;
+      --text: #e7fbff;
+      --accent: #8deaff;
+      --glow: rgba(141, 234, 255, 0.55);
+    }
+
+    * { box-sizing: border-box; }
 
     body {
+      margin: 0;
       min-height: 100vh;
-      background: linear-gradient(180deg, #020d1f 0%, #041e3a 30%, #063b6b 65%, #0a5a8f 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Segoe UI', sans-serif;
       overflow: hidden;
-      position: relative;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(1400px 700px at 50% 120%, rgba(89, 205, 255, 0.3) 0%, rgba(89, 205, 255, 0) 60%),
+        linear-gradient(180deg, var(--deep-1) 0%, var(--deep-2) 50%, var(--deep-3) 100%);
     }
 
-    /* ── bubbles ── */
-    .bubble {
-      position: absolute;
-      bottom: -60px;
-      border-radius: 50%;
-      background: rgba(100, 210, 255, 0.15);
-      border: 1px solid rgba(100, 210, 255, 0.3);
-      animation: rise linear infinite;
-    }
-    @keyframes rise {
-      to { transform: translateY(-110vh) scale(1.2); opacity: 0; }
-    }
-
-    /* ── light rays ── */
-    .rays {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: repeating-linear-gradient(
-        105deg,
-        transparent 0%,
-        rgba(0,180,255,0.04) 1%,
-        transparent 2%
-      );
-      animation: sway 8s ease-in-out infinite alternate;
+    .ray-layer {
+      position: fixed;
+      inset: 0;
       pointer-events: none;
+      opacity: 0.6;
+      background: repeating-linear-gradient(100deg, transparent 0%, rgba(173, 236, 255, 0.08) 1.2%, transparent 3.5%);
+      animation: rayShift 11s ease-in-out infinite alternate;
     }
-    @keyframes sway { from { transform: skewX(-3deg); } to { transform: skewX(3deg); } }
 
-    /* ── jellyfish ── */
+    @keyframes rayShift {
+      from { transform: translateX(-2%) skewX(-2deg); }
+      to { transform: translateX(2%) skewX(2deg); }
+    }
+
+    .content {
+      position: relative;
+      z-index: 5;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .title-wrap {
+      max-width: 780px;
+      animation: fadeUp 900ms ease 2.4s both;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 6vw, 4.6rem);
+      letter-spacing: 0.06em;
+      text-shadow: 0 0 22px var(--glow), 0 0 48px rgba(30, 185, 255, 0.35);
+    }
+
+    p {
+      margin: 14px 0 26px;
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      opacity: 0.9;
+    }
+
+    a {
+      display: inline-block;
+      color: #072132;
+      text-decoration: none;
+      font-weight: 700;
+      background: linear-gradient(90deg, #7ddfff, #b2f7ff);
+      border-radius: 999px;
+      padding: 12px 24px;
+      box-shadow: 0 10px 25px rgba(0, 150, 220, 0.35);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0, 170, 240, 0.45);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .bubble {
+      position: fixed;
+      bottom: -80px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(235, 250, 255, 0.95), rgba(140, 221, 250, 0.3));
+      box-shadow: inset -6px -8px 20px rgba(3, 56, 89, 0.28), 0 0 12px rgba(181, 245, 255, 0.45);
+      opacity: 0.7;
+      animation: rise linear infinite;
+      z-index: 2;
+    }
+
+    @keyframes rise {
+      to { transform: translateY(-120vh) translateX(18px); opacity: 0; }
+    }
+
     #jellyfish {
       position: fixed;
-      width: 130px;
-      bottom: -160px;
-      right: -160px;
-      animation: swim 3s cubic-bezier(.4,0,.2,1) forwards;
-      filter: drop-shadow(0 0 18px rgba(160,100,255,0.7));
-      z-index: 10;
-    }
-    @keyframes swim {
-      0%   { bottom: -160px; right: -160px; opacity: 0; }
-      30%  { opacity: 1; }
-      100% { bottom: calc(50vh - 65px); right: calc(50vw - 65px); }
+      right: -260px;
+      bottom: -260px;
+      width: min(38vw, 300px);
+      z-index: 4;
+      filter: drop-shadow(0 0 24px rgba(190, 159, 255, 0.45)) drop-shadow(0 0 56px rgba(105, 198, 255, 0.25));
+      animation: jellyEntrance 3.1s cubic-bezier(0.21, 0.93, 0.34, 1) forwards;
+      will-change: transform, right, bottom;
     }
 
-    /* tentacles wiggle */
-    .tentacle { transform-origin: top center; animation: wiggle 1.6s ease-in-out infinite alternate; }
-    .tentacle:nth-child(2) { animation-delay: .2s; }
-    .tentacle:nth-child(3) { animation-delay: .4s; }
-    .tentacle:nth-child(4) { animation-delay: .1s; }
-    .tentacle:nth-child(5) { animation-delay: .3s; }
-    @keyframes wiggle { from { transform: rotate(-8deg); } to { transform: rotate(8deg); } }
+    @keyframes jellyEntrance {
+      0% { right: -260px; bottom: -260px; opacity: 0; transform: rotate(-7deg) scale(0.8); }
+      40% { opacity: 1; }
+      100% { right: 6vw; bottom: 18vh; opacity: 1; transform: rotate(0deg) scale(1); }
+    }
 
-    /* jelly pulse */
-    .bell { animation: pulse 2s ease-in-out infinite; }
-    @keyframes pulse { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(.92); } }
+    .bell-main { animation: bellPulse 2.1s ease-in-out infinite; transform-origin: center 88px; }
+    .inner-aura { animation: auraPulse 2.4s ease-in-out infinite; }
 
-    /* ── title card ── */
-    #card {
-      text-align: center;
-      opacity: 0;
-      animation: fadeIn .8s ease forwards 3.4s;
-      z-index: 5;
-      position: relative;
+    @keyframes bellPulse {
+      0%, 100% { transform: scaleY(1) scaleX(1); }
+      50% { transform: scaleY(0.93) scaleX(1.03); }
     }
-    @keyframes fadeIn { to { opacity: 1; } }
 
-    #card h1 {
-      font-size: clamp(2.2rem, 6vw, 4rem);
-      color: #aef0ff;
-      text-shadow: 0 0 30px rgba(0,200,255,.8), 0 0 60px rgba(0,200,255,.4);
-      letter-spacing: .15em;
-      font-weight: 700;
+    @keyframes auraPulse {
+      0%, 100% { opacity: 0.55; }
+      50% { opacity: 0.95; }
     }
-    #card p {
-      margin-top: .8rem;
-      color: rgba(180, 230, 255, .75);
-      font-size: 1.1rem;
-      letter-spacing: .05em;
+
+    .tentacle { transform-origin: top center; animation: sway 1.9s ease-in-out infinite alternate; }
+    .tentacle.t2 { animation-delay: 140ms; }
+    .tentacle.t3 { animation-delay: 260ms; }
+    .tentacle.t4 { animation-delay: 90ms; }
+    .tentacle.t5 { animation-delay: 210ms; }
+    .tentacle.t6 { animation-delay: 170ms; }
+
+    @keyframes sway {
+      from { transform: rotate(-8deg) translateY(0); }
+      to { transform: rotate(8deg) translateY(2px); }
     }
-    #card a {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: .75rem 2.2rem;
-      border: 2px solid rgba(0,200,255,.6);
-      border-radius: 30px;
-      color: #aef0ff;
-      text-decoration: none;
-      font-size: 1rem;
-      letter-spacing: .08em;
-      background: rgba(0,100,160,.3);
-      backdrop-filter: blur(6px);
-      transition: background .3s, box-shadow .3s;
-    }
-    #card a:hover {
-      background: rgba(0,160,220,.45);
-      box-shadow: 0 0 20px rgba(0,200,255,.5);
+
+    @media (max-width: 900px) {
+      #jellyfish {
+        width: min(56vw, 260px);
+        animation-name: jellyEntranceMobile;
+      }
+
+      @keyframes jellyEntranceMobile {
+        0% { right: -240px; bottom: -220px; opacity: 0; transform: rotate(-7deg) scale(0.78); }
+        40% { opacity: 1; }
+        100% { right: 50%; bottom: 8vh; opacity: 1; transform: translateX(50%) rotate(0deg) scale(1); }
+      }
+
+      .title-wrap { padding-top: 6vh; }
     }
   </style>
 </head>
 <body>
+  <div class="ray-layer"></div>
 
-  <div class="rays"></div>
+  <div class="content">
+    <div class="title-wrap">
+      <h1>Team Aquatic-Pages</h1>
+      <p>Drift into ocean adventures built by Team Aquatic.</p>
+      <a href="{{ site.baseurl }}/characters-lesson">Enter the Aquatic World</a>
+    </div>
+  </div>
 
-  <!-- bubbles -->
+  <svg id="jellyfish" viewBox="0 0 360 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <radialGradient id="bellGrad" cx="50%" cy="35%" r="68%">
+        <stop offset="0%" stop-color="#ffd8ff" stop-opacity="0.95"/>
+        <stop offset="55%" stop-color="#c68cff" stop-opacity="0.82"/>
+        <stop offset="100%" stop-color="#7f5dff" stop-opacity="0.7"/>
+      </radialGradient>
+      <radialGradient id="innerGrad" cx="40%" cy="35%" r="75%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#9ae7ff" stop-opacity="0.15"/>
+      </radialGradient>
+      <linearGradient id="tentacleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#ffdcff" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#76d5ff" stop-opacity="0.45"/>
+      </linearGradient>
+      <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+        <feGaussianBlur stdDeviation="6" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
+    <g class="inner-aura" filter="url(#softGlow)">
+      <ellipse cx="180" cy="130" rx="108" ry="88" fill="#d8f1ff" opacity="0.24"/>
+    </g>
+
+    <g class="bell-main">
+      <path d="M56 170c0-82 56-134 124-134s124 52 124 134c0 34-17 54-44 66-26 11-53 14-80 14s-54-3-80-14c-27-12-44-32-44-66z" fill="url(#bellGrad)" stroke="#efd4ff" stroke-opacity="0.8" stroke-width="4"/>
+      <ellipse cx="180" cy="124" rx="84" ry="58" fill="url(#innerGrad)" class="inner-aura"/>
+      <ellipse cx="148" cy="98" rx="26" ry="14" fill="#ffffff" opacity="0.42" transform="rotate(-14 148 98)"/>
+      <ellipse cx="222" cy="106" rx="18" ry="11" fill="#ffffff" opacity="0.24" transform="rotate(12 222 106)"/>
+      <path d="M96 196c23 14 53 20 84 20s61-6 84-20" fill="none" stroke="#f6e8ff" stroke-opacity="0.62" stroke-width="5" stroke-linecap="round"/>
+    </g>
+
+    <g stroke="url(#tentacleGrad)" stroke-linecap="round" fill="none">
+      <path class="tentacle t1" d="M122 214C102 270 110 326 90 402" stroke-width="6"/>
+      <path class="tentacle t2" d="M142 220C140 276 142 338 128 430" stroke-width="5"/>
+      <path class="tentacle t3" d="M164 224C168 278 172 332 166 444" stroke-width="5"/>
+      <path class="tentacle t4" d="M186 224C192 274 200 340 206 438" stroke-width="5"/>
+      <path class="tentacle t5" d="M210 220C226 278 234 334 252 420" stroke-width="5"/>
+      <path class="tentacle t6" d="M236 214C266 262 284 330 306 402" stroke-width="6"/>
+    </g>
+  </svg>
+
   <script>
-    for (let i = 0; i < 22; i++) {
+    const bubbleCount = 28;
+    for (let i = 0; i < bubbleCount; i++) {
       const b = document.createElement('div');
       b.className = 'bubble';
-      const s = 8 + Math.random() * 28;
-      b.style.cssText = `width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${7+Math.random()*14}s;animation-delay:${Math.random()*12}s;opacity:${0.3+Math.random()*0.5}`;
+      const size = 8 + Math.random() * 24;
+      const left = Math.random() * 100;
+      const duration = 8 + Math.random() * 14;
+      const delay = Math.random() * 12;
+      b.style.width = `${size}px`;
+      b.style.height = `${size}px`;
+      b.style.left = `${left}%`;
+      b.style.animationDuration = `${duration}s`;
+      b.style.animationDelay = `${delay}s`;
       document.body.appendChild(b);
     }
   </script>
-
-  <!-- jellyfish SVG -->
-  <svg id="jellyfish" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
-    <!-- bell -->
-    <g class="bell">
-      <ellipse cx="50" cy="45" rx="38" ry="35" fill="rgba(180,100,255,0.55)" stroke="rgba(220,160,255,0.8)" stroke-width="1.5"/>
-      <ellipse cx="50" cy="38" rx="24" ry="18" fill="rgba(220,180,255,0.25)"/>
-      <!-- inner glow -->
-      <ellipse cx="42" cy="30" rx="8" ry="6" fill="rgba(255,255,255,0.12)" transform="rotate(-15,42,30)"/>
-    </g>
-    <!-- tentacles -->
-    <line class="tentacle" x1="30" y1="78" x2="22" y2="128" stroke="rgba(200,140,255,0.7)" stroke-width="2" stroke-linecap="round"/>
-    <line class="tentacle" x1="40" y1="80" x2="36" y2="128" stroke="rgba(200,140,255,0.7)" stroke-width="2" stroke-linecap="round"/>
-    <line class="tentacle" x1="50" y1="82" x2="50" y2="130" stroke="rgba(200,140,255,0.7)" stroke-width="2" stroke-linecap="round"/>
-    <line class="tentacle" x1="60" y1="80" x2="64" y2="128" stroke="rgba(200,140,255,0.7)" stroke-width="2" stroke-linecap="round"/>
-    <line class="tentacle" x1="70" y1="78" x2="78" y2="128" stroke="rgba(200,140,255,0.7)" stroke-width="2" stroke-linecap="round"/>
-  </svg>
-
-  <!-- title card -->
-  <div id="card">
-    <h1>Team Aquatic</h1>
-    <p>Welcome to the deep.</p>
-    <a href="{{ site.baseurl }}/characters-lesson">Dive In →</a>
-  </div>
-
 </body>
 </html>
