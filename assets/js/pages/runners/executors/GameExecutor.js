@@ -145,20 +145,38 @@ export class GameExecutor {
 
       const gameContainer = this.getGameContainer?.();
       const path = this.path;
-      const baseUrl = window.location.origin + path;
       const selectedVersion = this.engineVersionSelect ? this.engineVersionSelect.value : 'GameEnginev1';
+      const originUrl = window.location.origin;
+      const executorUrl = new URL(import.meta.url);
+      const marker = '/assets/js/pages/runners/executors/';
+      const markerIndex = executorUrl.pathname.indexOf(marker);
+      const inferredBasePath = markerIndex >= 0
+        ? executorUrl.pathname.slice(0, markerIndex)
+        : (path || '');
+      const normalizedPath = inferredBasePath && inferredBasePath !== '/'
+        ? `${inferredBasePath.replace(/\/$/, '')}/`
+        : '/';
+      const siteRootUrl = new URL(normalizedPath, originUrl);
+
+      const resolveModuleUrl = (importPath) => {
+        if (!importPath) return importPath;
+        if (importPath.startsWith('http://') || importPath.startsWith('https://')) {
+          return importPath;
+        }
+        if (importPath.startsWith('/')) {
+          return new URL(importPath, originUrl).href;
+        }
+        const normalizedImportPath = importPath.replace(/^\.\//, '');
+        return new URL(normalizedImportPath, siteRootUrl).href;
+      };
 
       code = code.replace(/GameEnginev1(?:\.1)?/g, selectedVersion);
       code = code.replace(/from\s+['"](\/?[^'"]+)['"]/g, (match, importPath) => {
-        if (importPath.startsWith('/')) {
-          return `from '${baseUrl}${importPath}'`;
-        } else if (!importPath.startsWith('http://') && !importPath.startsWith('https://')) {
-          return `from '${baseUrl}/${importPath}'`;
-        }
-        return match;
+        return `from '${resolveModuleUrl(importPath)}'`;
       });
 
-      const GameModule = await import(baseUrl + '/assets/js/' + selectedVersion + '/essentials/Game.js');
+      const gameModuleUrl = resolveModuleUrl(`./assets/js/${selectedVersion}/essentials/Game.js`);
+      const GameModule = await import(gameModuleUrl);
       const Game = GameModule.default;
 
       const blob = new Blob([code], { type: 'application/javascript' });
