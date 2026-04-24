@@ -27,13 +27,13 @@ class GameLevelAquaticGameLevel {
 
         const bgData = {
             name: "custom_bg",
-            src: path + "/images/projects/characters/Aquatic.png",
+            src: path + "/_projects/characters/images/Aquatic.png",
             pixels: { height: 1960, width: 2940 }
         };
 
         const playerData = {
             id: 'playerData',
-            src: path + "/images/projects/characters/scubadiver.png",
+            src: path + "/_projects/characters/images/scubadiver.png",
             SCALE_FACTOR: 5,
             STEP_FACTOR: 1000,
             ANIMATION_RATE: 50,
@@ -56,7 +56,7 @@ class GameLevelAquaticGameLevel {
         const slimeNpc = {
             id: 'Random Slime',
             greeting: "I've been living under the sea for thousands of years, do you wonder why?",
-            src: path + "/images/projects/characters/slime.png",
+            src: path + "/_projects/characters/images/slime.png",
             SCALE_FACTOR: 8,
             ANIMATION_RATE: 50,
             INIT_POSITION: { x: 800, y: 128 },
@@ -228,7 +228,7 @@ class GameLevelAquaticGameLevel {
         const kirbyNpc = {
             id: 'Kirby',
             greeting: 'Poyo! Ask me anything about ocean cleanup and sea life.',
-            src: path + '/images/projects/characters/kirby.png',
+            src: path + '/_projects/characters/images/kirby.png',
             SCALE_FACTOR: 10,
             ANIMATION_RATE: 6,
             INIT_POSITION: { x: 180, y: 140 },
@@ -1233,7 +1233,7 @@ class GameLevelAquaticGameLevel {
 
             const overlay = transitionOverlay('Swimming to the surface...');
             await animatePlayerSwim(14);
-            setBackground(path + '/images/projects/characters/Above the water.png');
+            setBackground(path + '/_projects/characters/images/Above the water.png');
             setWorldNpcVisibility(false);
 
             const player = getPlayer();
@@ -1262,7 +1262,7 @@ class GameLevelAquaticGameLevel {
             const overlay = transitionOverlay('Diving back underwater...');
             await animatePlayerSwim(12);
 
-            setBackground(path + '/images/projects/characters/Aquatic.png');
+            setBackground(path + '/_projects/characters/images/Aquatic.png');
             setWorldNpcVisibility(true);
             clearSurfaceTrash();
 
@@ -1649,7 +1649,7 @@ class GameLevelAquaticGameLevel {
             id: 'Mermaid',
             greeting: "I've lost all my starfishes. Will you collect them? Be careful, a shark is patrolling these waters!",
             // Mermaid spritesheet
-            src: path + "/images/projects/characters/Mermaid Spritesheet.png",
+            src: path + "/_projects/characters/images/Mermaid Spritesheet.png",
             SCALE_FACTOR: 6,
             ANIMATION_RATE: 50,
             INIT_POSITION: { x: 520, y: 320 },
@@ -1750,7 +1750,7 @@ class GameLevelAquaticGameLevel {
         const sharkNpc = {
             id: 'Shark',
             greeting: false,
-            src: path + "/images/projects/characters/Shark.png",
+            src: path + "/_projects/characters/images/Shark.png",
             SCALE_FACTOR: 5,
             STEP_FACTOR: 200,
             ANIMATION_RATE: 8,

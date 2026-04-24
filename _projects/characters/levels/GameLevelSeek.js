@@ -16,14 +16,14 @@ class GameLevelSeek {
         // ---------------- BACKGROUND ----------------
         const bgData = {
             name: "custom_bg",
-            src: path + "/images/projects/characters/tagplayground.png",
+            src: path + "/_projects/characters/images/tagplayground.png",
             pixels: { height: 400, width: 560 }
         };
 
         // ---------------- PLAYER ----------------
         const playerData = {
             id: 'playerData',
-            src: path + "/images/projects/characters/boysprite.png",
+            src: path + "/_projects/characters/images/boysprite.png",
             SCALE_FACTOR: 5,
             STEP_FACTOR: 1000,
             ANIMATION_RATE: 50,
@@ -55,7 +55,7 @@ class GameLevelSeek {
         const spriteOptions = [
             {
                 label: "Boy",
-                src: path + "/images/projects/characters/boysprite.png",
+                src: path + "/_projects/characters/images/boysprite.png",
                 pixels: { height: 612, width: 408 },
                 SCALE_FACTOR: 5,
                 ANIMATION_RATE: 50,
@@ -71,7 +71,7 @@ class GameLevelSeek {
             },
             {
                 label: "Scuba Diver",
-                src: path + "/images/projects/characters/scubadiver.png",
+                src: path + "/_projects/characters/images/scubadiver.png",
                 pixels: { height: 948, width: 632 },
                 SCALE_FACTOR: 5,
                 ANIMATION_RATE: 50,
@@ -87,7 +87,7 @@ class GameLevelSeek {
             },
             {
                 label: "Astro",
-                src: path + "/images/projects/characters/astro.png",
+                src: path + "/_projects/characters/images/astro.png",
                 pixels: { height: 770, width: 513 },
                 SCALE_FACTOR: 11,
                 ANIMATION_RATE: 110,
@@ -103,7 +103,7 @@ class GameLevelSeek {
             },
             {
                 label: "Kirby",
-                src: path + "/images/projects/characters/kirby.png",
+                src: path + "/_projects/characters/images/kirby.png",
                 pixels: { height: 36, width: 569 },
                 SCALE_FACTOR: 7,
                 ANIMATION_RATE: 8,
