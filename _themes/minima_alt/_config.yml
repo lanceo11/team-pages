@@ -20,21 +20,8 @@ description: "Class of 2026"
 owner_name: Open Coding Society 
 github_username: open-coding-society 
 github_repo: "pages" 
-baseurl: "/team-pages" 
+baseurl: "" 
 future: true
-
-# Exclude from Jekyll watch - these are processed by our conversion scripts
-# This prevents double-regeneration when saving notebooks/docx files
-exclude:
-# Jekyll defaults
-  - vendor
-# Custom excludes
-  - Makefile
-  - _notebooks
-  - _docx
-  - _projects
-  - venv
-# Note: / auto-excluded by Jekyll (underscore prefix)
 
 
 # Build settings
@@ -60,10 +47,8 @@ exclude:
 # sass:
 #   quiet_deps: true
 #   silence_deprecations: [import]
-incremental: true
-encoding: utf-8
 
-remote_theme: jekyll/minima
+remote_theme: jekyll/minima@d4d779a
 plugins:
   - jekyll-remote-theme
   - jekyll-include-cache
@@ -126,8 +111,8 @@ minima:
     - { platform: x, user_url: "https://x.com/Open_Coding" }
     - { platform: youtube, user_url: "https://www.youtube.com/@OpenCodingSociety" } 
   nav_pages:
+    - navigation/courses/csse.md
+    - navigation/courses/csp.md
+    - navigation/courses/csa.md 
     - navigation/blog.md
-    - navigation/courses.md
     - navigation/search.md
-
-gemini_api_key: AIzaSyBWEz5qHeWx5buC4I4dZ2fllaMk3z8k_-w

@@ -27,7 +27,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: false
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -86,7 +89,7 @@ jobs:
         run: |
           bundle exec jekyll build  # Build your Jekyll site
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
 
   # Deployment job
   deploy:
