@@ -341,14 +341,25 @@ class GameLevelAquaticGameLevel {
 
         // Prevent duplicate action rows when a dialogue updates in place.
         const clearDialogueActionButtons = (dialogueSystem) => {
-            if (!dialogueSystem?.dialogueBox) return;
+            if (!dialogueSystem) return;
 
+            // Newer dialogue system versions expose a dedicated button group.
+            // Clearing this avoids removing the controls row from the DOM.
+            if (dialogueSystem.actionButtonGroup) {
+                dialogueSystem.actionButtonGroup.innerHTML = '';
+                return;
+            }
+
+            // Legacy fallback: remove only non-avatar flex rows if present.
+            if (!dialogueSystem.dialogueBox) return;
             const dialogueBox = dialogueSystem.dialogueBox;
-            const avatarElement = document.getElementById(`dialogue-avatar-${dialogueSystem.id}`);
+            const safeId = dialogueSystem.safeId || dialogueSystem.id;
+            const avatarElement = document.getElementById(`dialogue-avatar-${safeId}`);
             const buttonContainers = dialogueBox.querySelectorAll('div[style*="display: flex"]');
 
             buttonContainers.forEach((container) => {
                 if (avatarElement && container.contains(avatarElement)) return;
+                if (dialogueSystem.controlsRow && container === dialogueSystem.controlsRow) return;
                 container.remove();
             });
         };
