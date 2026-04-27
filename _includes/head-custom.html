@@ -55,11 +55,19 @@
 <script src="{{ site.baseurl }}/assets/js/user-preferences.js"></script>
 <!-- Set up javaURI globally for OCS Analytics Tracker -->
 <script>
-    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
-        window.javaURI = "http://localhost:8585";
-    } else {
-        window.javaURI = "https://spring.opencodingsociety.com";
+  (function () {
+    const host = location.hostname;
+    const isLocal = host === "localhost" || host === "127.0.0.1";
+    const isOcsHost = host === "opencodingsociety.com" || host.endsWith(".opencodingsociety.com");
+
+    if (isLocal) {
+      window.javaURI = "http://localhost:8585";
+      return;
     }
+
+    // Avoid CORS errors on forks and preview domains.
+    window.javaURI = isOcsHost ? "https://spring.opencodingsociety.com" : null;
+  })();
 </script>
 <!-- OCS Analytics Tracking Script (loaded on every page) -->
 <script src="{{ site.baseurl }}/assets/js/ocs-analytics-tracker.js" defer></script>
@@ -67,5 +75,16 @@
 <script>window.baseurl = "{{ site.baseurl }}";</script>
 <script src="{{ site.baseurl }}/assets/js/keyboard-shortcuts.js" defer></script>
 
-<!-- AI A/B Test Engine SDK -->
-<script src="https://ai-ab-test-engine.vercel.app/sdk.js" data-project-id="cmnfour780000f63gu69kg2v8"></script>
+<!-- AI A/B Test Engine SDK (only on production OCS hosts) -->
+<script>
+  (function () {
+    const host = location.hostname;
+    const isOcsHost = host === "opencodingsociety.com" || host.endsWith(".opencodingsociety.com");
+    if (!isOcsHost) return;
+
+    const script = document.createElement('script');
+    script.src = 'https://ai-ab-test-engine.vercel.app/sdk.js';
+    script.dataset.projectId = 'cmnfour780000f63gu69kg2v8';
+    document.head.appendChild(script);
+  })();
+</script>
