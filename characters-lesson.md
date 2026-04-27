@@ -13,10 +13,10 @@ CSSE Zone Game
 {% endcapture %}
 
 {% capture code0 %}
-import GameControl from './assets/js/GameEnginev1.1/essentials/GameControl.js';
-import GameLevelAquaticGameLevel from './assets/js/projects/characters/levels/GameLevelAquaticGameLevel.js';
-import GameLevelSeek from './assets/js/projects/characters/levels/GameLevelSeek.js';
-import GameLevelBasketball from './assets/js/projects/characters/levels/GameLevelBasketball.js';
+import GameControl from '{{site.baseurl}}/assets/js/GameEnginev1.1/essentials/GameControl.js';
+import GameLevelAquaticGameLevel from '{{site.baseurl}}/assets/js/projects/characters/levels/GameLevelAquaticGameLevel.js';
+import GameLevelSeek from '{{site.baseurl}}/assets/js/projects/characters/levels/GameLevelSeek.js';
+import GameLevelBasketball from '{{site.baseurl}}/assets/js/projects/characters/levels/GameLevelBasketball.js';
 
 export const gameLevelClasses = [GameLevelAquaticGameLevel, GameLevelSeek, GameLevelBasketball,];
 export { GameControl };
