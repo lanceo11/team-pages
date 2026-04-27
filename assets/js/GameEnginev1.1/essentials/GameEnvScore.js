@@ -89,6 +89,9 @@ export default class GameEnvScore {
         this.classId = 'GameEnvScore'; // Class identifier for logging
         this.gameEnv = gameEnv;
         this.isVisible = false; // track current visibility state
+        this.isLocalhost = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+        this.isOcsHost = window.location.hostname === 'opencodingsociety.com'
+            || window.location.hostname.endsWith('.opencodingsociety.com');
         this._createScoreCounter();
         this._setupAutoUpdate();
     }
@@ -316,7 +319,7 @@ export default class GameEnvScore {
      * Uses API chaining pattern with centralized error handling
      */
     _saveStatsToServer() {
-        if (!javaURI) {
+        if (!javaURI || !(this.isLocalhost || this.isOcsHost)) {
             return Promise.reject(new Error(this.ERROR_HANDLERS.BACKEND_NOT_CONFIGURED.message));
         }
 

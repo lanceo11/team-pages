@@ -1,0 +1,5 @@
+---
+---
+
+/* Compatibility stylesheet: some layouts request /assets/main.css. */
+@import url("{{ '/assets/css/style.css' | relative_url }}");

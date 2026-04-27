@@ -139,6 +139,8 @@ export default class Leaderboard {
         this.showingTypeSelection = false;
         this.elementaryEntries = []; // Store elementary entries locally
         this.isLocalhost = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+        this.isOcsHost = window.location.hostname === 'opencodingsociety.com'
+            || window.location.hostname.endsWith('.opencodingsociety.com');
         // By default, avoid backend delete on localhost to prevent noisy network/login redirect errors.
         // Can be overridden with options.syncElementaryDeleteWithBackend.
         this.syncElementaryDeleteWithBackend = typeof options.syncElementaryDeleteWithBackend === 'boolean'
@@ -152,7 +154,7 @@ export default class Leaderboard {
 
         // Flag whether a backend URI is available; allow UI to mount even when
         // backend is unreachable so leaderboard can operate in offline/local mode.
-        this.hasBackend = Boolean(javaURI);
+        this.hasBackend = Boolean(javaURI) && (this.isLocalhost || this.isOcsHost);
 
         this.init();
     }
